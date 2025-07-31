@@ -51,3 +51,61 @@ body {
 .nav-link:hover {
     color: #00AFFF;
 }
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-image: url('assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 60px;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00AFFF;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.contact-btn:hover {
+    background: #00AFFF;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.social-link {
+    color: #ccc;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: #00AFFF;
+}
