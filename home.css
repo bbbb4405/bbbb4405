@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://via.placeholder.com/1920x1080?text=Background+Image') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.menu {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    color: #CCCCCC;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.menu ul li a.active {
+    color: #00AFFF;
+}
+
+.menu ul li a:hover {
+    color: #FFFFFF;
+}
+
+.home-content {
+    padding-top: 100px;
+}
+
+.home-content h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+.home-content p {
+    font-size: 24px;
+}
+
+.home-content button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.home-content button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px #ffffff;
+}
+
+.social-icons {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #00AFFF;
+}
