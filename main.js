@@ -1,46 +1,39 @@
-const sidebarToggleBtns = document.querySelectorAll(".sidebar-toggle");
-const sidebar = document.querySelector(".sidebar");
-const searchForm = document.querySelector(".search-form");
-const themeToggleBtn = document.querySelector(".theme-toggle");
-const themeIcon = themeToggleBtn.querySelector(".theme-icon");
-const menuLinks = document.querySelectorAll(".menu-link");
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.querySelector(".sidebar");
+  const toggleButtons = document.querySelectorAll(".sidebar-toggle");
+  const themeToggle = document.querySelector(".theme-toggle");
+  const themeText = document.querySelector(".theme-text");
+  const themeIcon = themeToggle.querySelector("i");
+  const contentFrame = document.getElementById("contentFrame");
 
-// Updates the theme icon based on current theme and sidebar state
-const updateThemeIcon = () => {
-  const isDark = document.body.classList.contains("dark-theme");
-  themeIcon.textContent = sidebar.classList.contains("collapsed") ? (isDark ? "light_mode" : "dark_mode") : "dark_mode";
-};
+  // Toggle Sidebar
+  toggleButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      sidebar.classList.toggle("collapsed");
+    });
+  });
 
-// Apply dark theme if saved or system prefers, then update icon
-const savedTheme = localStorage.getItem("theme");
-const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-const shouldUseDarkTheme = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+  // Toggle Dark Mode
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    const isDark = document.body.classList.contains("dark");
+    themeText.textContent = isDark ? "Light Mode" : "Dark Mode";
+    themeIcon.className = isDark ? "bx bx-sun" : "bx bx-moon";
+  });
 
-document.body.classList.toggle("dark-theme", shouldUseDarkTheme);
-updateThemeIcon();
+  // Menu click load iframe content
+  const menuLinks = document.querySelectorAll(".menu-link");
+  menuLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
 
-// Toggle between themes on theme button click
-themeToggleBtn.addEventListener("click", () => {
-  const isDark = document.body.classList.toggle("dark-theme");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-  updateThemeIcon();
-});
+      // Load page into iframe
+      const page = link.getAttribute("data-page");
+      contentFrame.src = page;
 
-// Toggle sidebar collapsed state on buttons click
-sidebarToggleBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed");
-    updateThemeIcon();
+      // Update active class
+      document.querySelectorAll(".menu-item").forEach(item => item.classList.remove("active"));
+      link.closest(".menu-item").classList.add("active");
+    });
   });
 });
-
-// Expand the sidebar when the search form is clicked
-searchForm.addEventListener("click", () => {
-  if (sidebar.classList.contains("collapsed")) {
-    sidebar.classList.remove("collapsed");
-    searchForm.querySelector("input").focus();
-  }
-});
-
-// Expand sidebar by default on large screens
-if (window.innerWidth > 768) sidebar.classList.remove("collapsed");
