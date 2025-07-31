@@ -3,189 +3,102 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #1a1a1a;
     color: #ffffff;
-    transition: background-color 0.3s;
-
-    /* Ảnh nền cho toàn trang */
     background-image: url('assets/images/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-body.dark-theme {
-    background-color: #121212;
-}
-
-.site-nav {
-    padding: 10px;
+.navbar {
+    padding: 20px 0;
     background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-toggle {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-.sidebar {
-    width: 250px;
-    background: rgba(0, 0, 0, 0.7); /* cập nhật nền mờ */
-    backdrop-filter: blur(4px);     /* hiệu ứng mờ */
-    transition: width 0.3s;
-    overflow: hidden;
-}
-
-.sidebar.collapsed {
-    width: 60px;
-}
-
-.sidebar-header {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.header-logo {
-    height: 30px;
-}
-
-.sidebar-content {
-    padding: 20px;
-}
-
-.search-form {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.search-form span {
-    margin-right: 10px;
-    color: #ccc;
-}
-
-.search-form input {
     width: 100%;
-    padding: 5px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    animation: fadeIn 0.5s ease-in;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
-.menu-list {
+.nav-menu {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.menu-item {
-    margin-bottom: 10px;
+.nav-item {
+    display: inline;
 }
 
-.menu-link {
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    padding: 10px;
-    color: #ccc;
-    text-decoration: none;
+    gap: 5px;
+    padding: 5px 10px;
     transition: color 0.3s;
 }
 
-.menu-link:hover .menu-label,
-.menu-link.active .menu-label {
-    color: #fff;
-    text-shadow: 0 0 10px #00AFFF, 0 0 20px #00AFFF, 0 0 30px #00FFFF;
+.nav-link:hover {
+    color: #00AFFF;
 }
 
-.menu-link span.material-symbols-rounded {
-    margin-right: 10px;
+.hero {
+    margin-top: 80px;
+    text-align: center;
+    padding: 50px 20px;
 }
 
-.menu-label {
-    animation: fadeIn 0.5s ease-in 0.2s backwards;
+.hero h1 {
+    font-size: 3.5em;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00AFFF;
 }
 
-.sidebar-footer {
-    padding: 15px;
+.hero p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 10px 20px;
     background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-.theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: none;
-    border: none;
     color: #fff;
-    width: 100%;
-    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
 }
 
-.theme-label {
+.contact-btn:hover {
+    background: #00AFFF;
+}
+
+.social-icons {
+    margin-top: 20px;
     display: flex;
-    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
 }
 
-.theme-icon {
-    margin-right: 10px;
+.social-link {
+    color: #ccc;
+    font-size: 24px;
+    transition: color 0.3s;
 }
 
-.theme-text {
-    animation: fadeIn 0.5s ease-in 0.4s backwards;
-}
-
-.theme-toggle-track {
-    width: 40px;
-    height: 20px;
-    background: #ccc;
-    border-radius: 10px;
-    position: relative;
-}
-
-.theme-toggle-indicator {
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: left 0.3s;
-}
-
-body.dark-theme .theme-toggle-indicator {
-    left: 22px;
-}
-
-.main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8); /* cập nhật nền sáng mờ */
-    border-radius: 12px;                 /* làm đẹp khung */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.social-link:hover {
+    color: #00AFFF;
 }
