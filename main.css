@@ -268,7 +268,7 @@ $sidebar-footer-height: 230px;
       }
       &.icon-shape-rounded .menu-item a .menu-icon {
         border-radius: 4px;
-      }
+      } 
       &.icon-shape-square .menu-item a .menu-icon {
         border-radius: 0;
       }
