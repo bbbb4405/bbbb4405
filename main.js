@@ -1,11 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Smooth scroll for navigation links
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
-            const targetId = link.getAttribute("href");
-            document.querySelector(targetId).scrollIntoView({ behavior: "smooth" });
+            const targetUrl = link.getAttribute("href");
+            window.location.href = targetUrl;
+
+            // Remove active class from all items
+            document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
+            // Add active class to clicked item
+            link.closest(".nav-item").classList.add("active");
         });
     });
+
+    // Set initial active state for HOME
+    document.querySelector(".nav-item").classList.add("active");
 });
