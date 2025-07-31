@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Set initial active state for HOME
-    document.querySelector(".nav-item").classList.add("active");
+    // Set initial active state based on current page
+    const currentPage = window.location.pathname.split('/').pop();
+    navLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+            link.closest(".nav-item").classList.add("active");
+        }
+    });
 });
